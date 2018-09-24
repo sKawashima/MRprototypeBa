@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.js"],"names":["console","log"],"mappings":";;;AAGA,aAHA,QAAA,aACA,QAAA,gBAEAA,QAAQC,IAAI","file":"app.d24b8304.map","sourceRoot":"../front","sourcesContent":["import 'reset-css'\nimport './style.sass'\n\nconsole.log('hello')\n"]}
