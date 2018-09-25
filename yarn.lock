@@ -2998,6 +2998,10 @@ isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
 
+ismobilejs@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/ismobilejs/-/ismobilejs-0.4.1.tgz#1a5f126c70fed39c93da380fa62cbae5723e7dc2"
+
 isobject@^2.0.0, isobject@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
@@ -3373,6 +3377,10 @@ mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.19:
 mime@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
+
+mime@^2.0.3:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-2.3.1.tgz#b1621c54d63b97c47d3cfe7f7215f7d64517c369"
 
 mimic-fn@^1.0.0:
   version "1.2.0"
@@ -3883,6 +3891,12 @@ parcel-plugin-sw-precache@^1.0.1:
     sw-precache "^5.2.1"
     uglify-es "^3.3.9"
     url-join "^4.0.0"
+
+parcel-plugin-url-loader@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/parcel-plugin-url-loader/-/parcel-plugin-url-loader-1.2.5.tgz#2595fb6c468820921876abcc75b2bf75b891e8ab"
+  dependencies:
+    mime "^2.0.3"
 
 parse-asn1@^5.0.0:
   version "5.1.1"
