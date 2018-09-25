@@ -16,6 +16,10 @@ console.log('hello')
 const app = []
 const tone = []
 
+// Thousand Dreamsの旋律
+const soundlist = ['D4', 'C4', 'A3', 'G3', 'G3', 'A3', 'C4', 'D4', 'E4', 'D4', 'C4', 'A3', 'G3', 'A3', 'C4', 'B3', 'G3', 'E3']
+let soundN = 0
+
 // init
 window.onload = () => {
   console.log('onload')
@@ -27,21 +31,31 @@ window.onload = () => {
   app.ctx = app.c.getContext('2d')
   app.ctx.beginPath()
   // setup tone
-  tone.E3 = new Tone.Player(E3).toMaster()
-  tone.G3 = new Tone.Player(G3).toMaster()
-  tone.A3 = new Tone.Player(A3).toMaster()
-  tone.B3 = new Tone.Player(B3).toMaster()
-  tone.C4 = new Tone.Player(C4).toMaster()
-  tone.D4 = new Tone.Player(D4).toMaster()
-  tone.E4 = new Tone.Player(E4).toMaster()
+  tone['E3'] = new Tone.Player(E3).toMaster()
+  tone['G3'] = new Tone.Player(G3).toMaster()
+  tone['A3'] = new Tone.Player(A3).toMaster()
+  tone['B3'] = new Tone.Player(B3).toMaster()
+  tone['C4'] = new Tone.Player(C4).toMaster()
+  tone['D4'] = new Tone.Player(D4).toMaster()
+  tone['E4'] = new Tone.Player(E4).toMaster()
   // setup methods
   app.c.addEventListener('touchstart', touchstart)
   app.c.addEventListener('touchmove', touchmove)
   app.c.addEventListener('touchend', touchend)
-  app.c.addEventListener('mousedown', () => { tone.A3.restart() })
+  app.c.addEventListener('mousedown', () => { playSound() })
   app.c.addEventListener('mouseup', () => { console.log('up') })
 }
 
 const touchstart = () => {}
 const touchmove = () => {}
 const touchend = () => {}
+
+const playSound = () => {
+  // play sound
+  tone[soundlist[soundN]].restart()
+  // set soundN
+  soundN++
+  if (soundN === soundlist.length) {
+    soundN = 0
+  }
+}
