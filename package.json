@@ -23,5 +23,8 @@
   "scripts": {
     "dev": "parcel front/index.pug --open",
     "build": "parcel build front/index.pug --public-url ./ -d docs"
+  },
+  "sw-precache": {
+    "maximumFileSizeToCacheInBytes": 10000000
   }
 }
