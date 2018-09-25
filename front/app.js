@@ -48,11 +48,19 @@ window.onload = () => {
   app.c.addEventListener('mouseup', stopSound)
 }
 
-const touchstart = () => {}
-const touchmove = () => {}
-const touchend = () => {}
+const touchstart = () => {
+  playSound()
+}
+const touchmove = (ev) => {
+}
+const touchend = (ev) => {
+  if (ev.touches.length === 0) {
+    stopSound()
+  }
+}
 
 const playSound = () => {
+  console.log('play')
   // update scoreN
   scoreN = nextScore(scoreN)
   // stop other sound
