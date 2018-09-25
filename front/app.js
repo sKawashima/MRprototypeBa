@@ -44,8 +44,8 @@ window.onload = () => {
   app.c.addEventListener('touchstart', touchstart)
   app.c.addEventListener('touchmove', touchmove)
   app.c.addEventListener('touchend', touchend)
-  app.c.addEventListener('mousedown', () => { playSound() })
-  app.c.addEventListener('mouseup', () => { console.log('up') })
+  app.c.addEventListener('mousedown', playSound)
+  app.c.addEventListener('mouseup', stopSound)
 }
 
 const touchstart = () => {}
@@ -66,6 +66,7 @@ const playSound = () => {
 }
 
 const stopSound = () => {
+  tone[songScore[scoreN]].stop()
 }
 
 const nextScore = (scoreN) => {
