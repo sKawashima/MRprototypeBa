@@ -61,11 +61,13 @@ const touchstart = (ev) => {
   console.log(user)
   playSound()
 }
+
 const touchmove = (ev) => {
   const diffX = Math.abs(user['x'] - ev.touches[ev.touches.length - 1].pageX)
   const diffY = user['y'] - ev.touches[ev.touches.length - 1].pageY
   changeSoundPitch(diffX, -diffY)
 }
+
 const touchend = (ev) => {
   if (ev.touches.length === 0) {
     stopSound()
