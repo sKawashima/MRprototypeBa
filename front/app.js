@@ -10,6 +10,7 @@ import D4 from './sound/D4.wav'
 import E4 from './sound/E4.wav'
 
 import Tone from 'tone'
+import isMobile from 'ismobilejs'
 
 console.log('hello')
 
@@ -41,11 +42,16 @@ window.onload = () => {
   tone['E4'] = new Tone.Player(E4).toMaster()
   console.log(tone)
   // setup methods
-  app.c.addEventListener('touchstart', touchstart)
-  app.c.addEventListener('touchmove', touchmove)
-  app.c.addEventListener('touchend', touchend)
-  app.c.addEventListener('mousedown', playSound)
-  app.c.addEventListener('mouseup', stopSound)
+  if (isMobile.any) {
+    app.c.addEventListener('touchstart', touchstart)
+    app.c.addEventListener('touchmove', touchmove)
+    app.c.addEventListener('touchend', touchend)
+    console.log('mobile')
+  } else {
+    app.c.addEventListener('mousedown', playSound)
+    app.c.addEventListener('mouseup', stopSound)
+    console.log('not mobile')
+  }
 }
 
 const touchstart = () => {
