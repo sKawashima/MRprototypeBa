@@ -16,6 +16,7 @@ console.log('hello')
 
 const app = []
 const tone = []
+const user = []
 
 // Thousand Dreamsの旋律
 const soundList = ['E3', 'G3', 'A3', 'B3', 'C4', 'D4', 'E4']
@@ -54,10 +55,16 @@ window.onload = () => {
   }
 }
 
-const touchstart = () => {
+const touchstart = (ev) => {
+  user['x'] = ev.touches[ev.touches.length - 1].pageX
+  user['y'] = ev.touches[ev.touches.length - 1].pageY
+  console.log(user)
   playSound()
 }
 const touchmove = (ev) => {
+  const diffX = Math.abs(user['x'] - ev.touches[ev.touches.length - 1].pageX)
+  const diffY = user['y'] - ev.touches[ev.touches.length - 1].pageY
+  changeSoundPitch(diffX, -diffY)
 }
 const touchend = (ev) => {
   if (ev.touches.length === 0) {
@@ -76,7 +83,12 @@ const playSound = () => {
     }
   })
   // play sound
+  tone[songScore[scoreN]].playbackRate = 1
   tone[songScore[scoreN]].restart()
+}
+
+const changeSoundPitch = (x, y) => {
+  tone[songScore[scoreN]].playbackRate = 1 + x / 2000 + y / 3000
 }
 
 const stopSound = () => {
