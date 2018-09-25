@@ -18,8 +18,8 @@ const tone = []
 
 // Thousand Dreamsの旋律
 const soundList = ['E3', 'G3', 'A3', 'B3', 'C4', 'D4', 'E4']
-const songScore = ['D4', 'C4', 'A3', 'G3', 'G3', 'A3', 'C4', 'D4', 'E4', 'D4', 'C4', 'A3', 'G3', 'A3', 'C4', 'B3', 'G3', 'E3']
-let scoreN = 0
+const songScore = ['D4', 'C4', 'A3', 'G3', 'G3', 'A3', 'C4', 'D4', 'E4', 'D4', 'C4', 'A3', 'G3', 'A3', 'C4', 'B3', 'G3', 'E3', 'D4', 'C4', 'A3', 'G3', 'G3', 'A3', 'C4', 'D4', 'E4', 'D4', 'C4', 'A3', 'G3', 'A3', 'C4', 'B3', 'G3', 'A3']
+let scoreN = -1
 
 // init
 window.onload = () => {
@@ -53,6 +53,8 @@ const touchmove = () => {}
 const touchend = () => {}
 
 const playSound = () => {
+  // update scoreN
+  scoreN = nextScore(scoreN)
   // stop other sound
   soundList.forEach((val, id) => {
     if (songScore[scoreN] !== val) {
@@ -61,9 +63,15 @@ const playSound = () => {
   })
   // play sound
   tone[songScore[scoreN]].restart()
-  // set scoreN
+}
+
+const stopSound = () => {
+}
+
+const nextScore = (scoreN) => {
   scoreN++
   if (scoreN === songScore.length) {
     scoreN = 0
   }
+  return scoreN
 }
