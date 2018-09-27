@@ -49,10 +49,30 @@ window.onload = () => {
     app.c.addEventListener('touchend', touchend)
     console.log('mobile')
   } else {
-    app.c.addEventListener('mousedown', playSound)
-    app.c.addEventListener('mouseup', stopSound)
+    app.c.addEventListener('mousedown', clickstart)
+    app.c.addEventListener('mousemove', mousemove)
+    app.c.addEventListener('mouseup', clickend)
     console.log('not mobile')
   }
+}
+
+const clickstart = (ev) => {
+  playSound()
+  user['x'] = ev.clientX
+  user['y'] = ev.clientY
+  console.log(user)
+}
+
+const mousemove = (ev) => {
+  const diffX = Math.abs(user['x'] - ev.clientX)
+  const diffY = user['y'] - ev.clientY
+  console.log(diffX)
+  console.log(diffY)
+  changeSoundPitch(diffX * 10, -diffY * 10)
+}
+
+const clickend = () => {
+  stopSound()
 }
 
 const touchstart = (ev) => {
